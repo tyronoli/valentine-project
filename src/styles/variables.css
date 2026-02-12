@@ -1,0 +1,64 @@
+/* src/styles/variables.css */
+:root {
+    /* --- COLORS --- */
+    --color-primary: #007bff;
+    --color-secondary: #6c757d;
+    --color-background: #ffffff;
+    --color-text: #212529;
+
+    /* --- FLUID SPACING --- */
+    /* 
+       Now your margins and paddings will shrink on mobile 
+       and expand on desktop, just like your text.
+    */
+
+    /* 2px - 4px */
+    --spacing-xs: clamp(2px, 0.5vw, 4px);
+
+    /* 4px - 8px */
+    --spacing-sm: clamp(4px, 1vw, 8px);
+
+    /* 16px - 24px (Standard padding) */
+    --spacing-md: clamp(1rem, 2vw, 1.5rem);
+
+    /* 32px - 48px (Section gaps) */
+    --spacing-lg: clamp(2rem, 4vw, 3rem);
+
+    /* 64px - 96px (Major Layout gaps) */
+    --spacing-xl: clamp(4rem, 6vw, 6rem);
+
+    /* --- BORDER RADIUS --- */
+    --radius-sm: 4px;
+    --radius-md: 8px;
+    --radius-full: 9999px;
+    /* Added utility for pill buttons */
+
+    /* --- FLUID TYPOGRAPHY --- */
+    /* Mobile: 12px -> Desktop: 14px */
+    --fs-sm: clamp(0.75rem, 0.5vw + 0.65rem, 0.875rem);
+
+    /* Mobile: 16px -> Desktop: 18px */
+    --fs-base: clamp(1rem, 0.5vw + 0.9rem, 1.125rem);
+
+    /* Mobile: 18px -> Desktop: 24px */
+    --fs-lg: clamp(1.125rem, 1.5vw + 0.8rem, 1.5rem);
+
+    /* Mobile: 24px -> Desktop: 32px */
+    --fs-xl: clamp(1.5rem, 2vw + 1rem, 2rem);
+
+    /* Mobile: 32px -> Desktop: 48px */
+    --fs-2xl: clamp(2rem, 4vw + 1rem, 3rem);
+
+    /* Mobile: 40px -> Desktop: 64px */
+    --fs-3xl: clamp(2.5rem, 5vw + 1rem, 4rem);
+}
+
+/* --- DARK MODE OVERRIDES --- */
+[data-theme='dark'] {
+    --color-background: #121212;
+    --color-text: #e0e0e0;
+
+    /* Optional: Dim the primary color slightly for dark mode eye-safety */
+    --color-primary: #3395ff;
+    --color-secondary: #aeb5bc;
+}

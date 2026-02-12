@@ -1,0 +1,18 @@
+/* src/styles/globals.css */
+
+/* Order matters! */
+@import './reset.css';
+@import './variables.css';
+@import './typography.css';
+
+/* Global utility classes (optional) */
+body {
+    background-color: var(--color-background);
+    transition: background-color 0.3s ease;
+}
+
+.container {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 0 var(--spacing-md);
+}
