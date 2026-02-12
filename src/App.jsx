@@ -79,7 +79,7 @@ function App() {
               {noCount > 0 && (
                 <p className={styles.guiltText}>{currentText}</p>
               )}
-              <h1 className={styles.title}>Will you be my Valentine?</h1>
+              <h1 className={styles.title}>Will you be my Valentine Baby Jem?</h1>
             </div>
 
             <div className={styles.buttonGroup}>
