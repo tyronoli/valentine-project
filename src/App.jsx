@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
 import Button from './components/Button/Button';
 import styles from './App.module.css';
 
@@ -32,15 +32,29 @@ function App() {
   const [yesPressed, setYesPressed] = useState(false);
   const [noCount, setNoCount] = useState(0);
 
-  // --- CHANGED LOGIC HERE ---
-  // Before: noCount < PHRASES.length (Visible until noCount was 8)
-  // Now:    noCount < PHRASES.length - 1 (Visible until noCount is 7)
-  // Meaning: When we hit the last message, the button hides.
-  const isNoButtonVisible = noCount < PHRASES.length - 1;
+  // --- NEW: PRELOAD IMAGES ---
+  useEffect(() => {
+    // This function runs once when the app loads.
+    // It forces the browser to download all images in the background.
+    const preloadImages = () => {
+      // 1. Preload the 'Yes' image
+      const imgYes = new Image();
+      imgYes.src = YES_IMAGE;
 
+      // 2. Preload all 'No' images
+      NO_IMAGES.forEach((src) => {
+        const img = new Image();
+        img.src = src;
+      });
+    };
+
+    preloadImages();
+  }, []); // Empty dependency array [] means run this only once on mount
+
+  // Logic
+  const isNoButtonVisible = noCount < PHRASES.length - 1;
   const currentNoImage = NO_IMAGES[noCount % NO_IMAGES.length];
   const currentText = PHRASES[Math.min(noCount, PHRASES.length - 1)];
-
   const yesButtonSize = noCount * 20 + 16;
   const noButtonSize = Math.max(16 - noCount, 8);
 
